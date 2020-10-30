@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     {% load static %}
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <title>Great Number Game</title>
   </head>
@@ -30,11 +31,5 @@
         <input type="submit" id="submit-btn" value="Submit" />
       </form>
     </div>
-    <script type="text/javascript">
-      $(document).ready(() => {
-        let data = JSON.parse("{{data|escapejs}}");
-        $("#result-container").append(data.guess_result);
-      });
-    </script>
   </body>
 </html>
