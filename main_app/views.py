@@ -1,18 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from json import dumps
 import random
 
 
 def index(request):
     request.session['guess_result'] = ""
     request.session['random'] = random.randint(1, 100)
-    print(request.session['random'])
-    context = {
-        "guess_result": ""
-    }
-    js_data = dumps(context)
-    return render(request, 'index.html', {"data": js_data})
+    print("RANDOM NUMBER", request.session['random'])
+    return render(request, 'index.html')
 
 
 def submit_guess(request):
